@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Categorias</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS básico para ocultar e exibir categorias */
+        .categoria { display: none; } /* Todas as categorias começam ocultas */
+        .categoria-ativa { display: block; } /* Apenas a categoria ativa será exibida */
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
+            <li><a href="#home" onclick="mostrarSecao('home')">HOME</a></li>
+            <li><a href="#conheca" onclick="mostrarSecao('conheca')">CONHEÇA</a></li>
+            <li><a href="#eventos" onclick="mostrarSecao('eventos')">EVENTOS</a></li>
+            <li><a href="#categorias" onclick="mostrarSecao('categorias')">CATEGORIAS</a></li>
+            <li><a href="#contato" onclick="mostrarSecao('contato')">CONTATO</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="secao">
+        <h2>Home</h2>
+        <p>Conteúdo da página inicial.</p>
+    </div>
+    <div id="conheca" class="secao">
+        <h2>Conheça</h2>
+        <p>Informações sobre a seção Conheça.</p>
+    </div>
+    <div id="eventos" class="secao">
+        <h2>Eventos</h2>
+        <p>Detalhes sobre os eventos.</p>
+    </div>
+
+    <!-- Menu de Categorias -->
+    <div id="categorias" class="secao">
+        <h2>Escolha uma Categoria</h2>
+        <button onclick="mostrarCategoria('bolos')">Bolos</button>
+        <button onclick="mostrarCategoria('paes')">Pães</button>
+        <button onclick="mostrarCategoria('cafes')">Cafés</button>
+        <button onclick="mostrarCategoria('bebidas-veganas')">Bebidas Veganas</button>
+        <button onclick="mostrarCategoria('doces')">Doces</button>
+    </div>
+
+    <!-- Categoria Bolos -->
+    <div id="bolos" class="secao categoria">
+        <h2>Bolos</h2>
+        <div class="item">
+            <img src="css/imagens/fatia bolo brigadeiro.jpg" alt="Bolo Brigadeiro Fatia">
+            <p>Bolo Brigadeiro Fatia: 8,00 R$</p>
+        </div>
+        <div class="item">
+            <img src="css/imagens/bolo de brigadeiro inteiro.jpg" alt="Bolo Brigadeiro Inteiro">
+            <p>Bolo Brigadeiro Inteiro: 30,00 R$</p>
+        </div>
+    </div>
+
+    <!-- Categoria Pães -->
+    <div id="paes" class="secao categoria">
+        <h2>Pães</h2>
+        <div class="item">
+            <img src="css/imagens/pao frances.jpg" alt="Pão Francês">
+            <p>Pão Frances: 4,00 R$</p>
+        </div>
+        <div class="item">
+            <img src="css/imagens/pao integral.jpg" alt="Pão Integral">
+            <p>Pão Integral: 6,00 R$</p>
+        </div>
+    </div>
+
+    <!-- Categoria Cafés -->
+    <div id="cafes" class="secao categoria">
+        <h2>Cafés</h2>
+        <div class="item">
+            <img src="css/imagens/capuucino.jpg" alt="Capuccino">
+            <p>Capuccino: 5,00 R$</p>
+        </div>
+        <div class="item">
+            <img src="css/imagens/cafeexpresso.jpeg" alt="Café Expresso">
+            <p>Café Expresso: 7,00 R$</p>
+        </div>
+    </div>
+
+    <!-- Categoria Bebidas Veganas -->
+    <div id="bebidas-veganas" class="secao categoria">
+        <h2>Bebidas Veganas</h2>
+        <div class="item">
+            <img src="css/imagens/Smoothie Vegano.jpg" alt="Smoothie Vegano">
+            <p>Smoothie Vegano: 10,00 R$</p>
+        </div>
+    </div>
+
+    <!-- Categoria Doces -->
+    <div id="doces" class="secao categoria">
+        <h2>Doces</h2>
+        <div class="item">
+            <img src="css/imagens/brigadeiro.jpg" alt="Brigadeiro">
+            <p>Brigadeiro: 5,00 R$</p>
+        </div>
+    </div>
+
+    <div id="contato" class="secao">
+        <h2>Contato</h2>
+        <p>Informações de contato.</p>
+    </div>
+
+    <script>
+        function mostrarCategoria(categoriaId) {
+            // Oculta todas as categorias
+            const categorias = document.querySelectorAll('.categoria');
+            categorias.forEach(categoria => {
+                categoria.classList.remove('categoria-ativa');
+            });
+
+            // Exibe a categoria selecionada
+            const categoriaSelecionada = document.getElementById(categoriaId);
+            if (categoriaSelecionada) {
+                categoriaSelecionada.classList.add('categoria-ativa');
+            }
+        }
+
+        function mostrarSecao(secaoId) {
+            // Similar à função acima, mas para outras seções como Home, Conheça, etc.
+            const secoes = document.querySelectorAll('.secao');
+            secoes.forEach(secao => {
+                secao.classList.remove('categoria-ativa');
+            });
+            document.getElementById(secaoId).classList.add('categoria-ativa');
+        }
+    </script>
+</body>
+</html>
