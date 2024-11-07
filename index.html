@@ -4,11 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Categorias</title>
+
     <link rel="stylesheet" href="styles.css">
+
     <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos gerais da navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Ícone do menu hambúrguer */
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* Menu no layout desktop */
+        .menu {
+            display: flex;
+            list-style: none;
+            z-index: 1;
+        }
+
+        .menu li {
+            margin-left: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .menu li a:hover {
+            color: #f0a500;
+        }
+
+        /* Ajustes para o layout mobile */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #333;
+                width: 100%;
+                z-index: 1;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu li {
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+
         /* CSS básico para ocultar e exibir categorias */
-        .categoria { display: none; } /* Todas as categorias começam ocultas */
-        .categoria-ativa { display: block; } /* Apenas a categoria ativa será exibida */
+        .secao { display: none; }
+        .categoria-ativa { display: block; }
+        
+        /* Estilos das imagens dos produtos */
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Estilo básico para os botões */
+        button {
+            padding: 10px 20px;
+            background-color: #f0a500;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #e08500;
+        }
+
+        /* Centralizar texto */
+        .centralizado {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -23,20 +133,46 @@
         </ul>
     </nav>
 
-    <div id="home" class="secao">
+    <div id="home" class="secao categoria-ativa">
         <h2>Home</h2>
         <p>Conteúdo da página inicial.</p>
     </div>
+
     <div id="conheca" class="secao">
-        <h2>Conheça</h2>
-        <p>Informações sobre a seção Conheça.</p>
-    </div>
-    <div id="eventos" class="secao">
-        <h2>Eventos</h2>
-        <p>Detalhes sobre os eventos.</p>
+        <br>
+        <h2 class="centralizado">Sobre a Coffee Break</h2>
+        <p class="centralizado">A <strong>Coffee Break</strong> foi fundada em 1990 e se tornou um ponto de encontro favorito para amantes de café e descontração...</p>
     </div>
 
-    <!-- Menu de Categorias -->
+    <div id="eventos" class="secao">
+        <h2 class="centralizado" style="margin-top: 20px;">Eventos Especiais</h2>
+        <p class="centralizado"><strong>FAÇA DO SEU EVENTO, UMA CELEBRAÇÃO INESQUECÍVEL</strong>...</p>
+        <p class="centralizado" style="font-weight: bold;">SOLICITE UM ORÇAMENTO</p>
+
+        <form action="URL_DO_SEU_SERVIDOR" method="post" style="max-width: 600px; margin: auto;">
+            <label for="nome">Nome (obrigatório)</label>
+            <input type="text" id="nome" name="nome" required style="width: 100%; padding: 10px; margin: 8px 0;">
+            
+            <!-- Campo E-mail -->
+            <label for="email">E-mail (obrigatório)</label>
+            <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin: 8px 0;">
+            
+            <!-- Campo Celular (WhatsApp) -->
+            <label for="celular">Celular (WhatsApp) (obrigatório)</label>
+            <input type="tel" id="celular" name="celular" required style="width: 100%; padding: 10px; margin: 8px 0;">
+            
+            <!-- Campo Descrição do Evento -->
+            <label for="descricao">Conte-nos um pouco sobre o seu evento (obrigatório)</label>
+            <textarea id="descricao" name="descricao" required rows="4" style="width: 100%; padding: 10px; margin: 8px 0;" placeholder="Por favor, deixe-nos saber o que está em sua mente. Tem uma pergunta para nós? Pergunta à vontade."></textarea>
+            
+            <!-- Botão Enviar -->
+            <button type="submit" style="width: 100%; padding: 10px; background-color: #333; color: #fff; font-size: 16px; cursor: pointer;">
+                Solicitar Orçamento
+            </button>
+        </form>
+
+    </div>
+    
     <div id="categorias" class="secao">
         <h2>Escolha uma Categoria</h2>
         <button onclick="mostrarCategoria('bolos')">Bolos</button>
@@ -44,9 +180,10 @@
         <button onclick="mostrarCategoria('cafes')">Cafés</button>
         <button onclick="mostrarCategoria('bebidas-veganas')">Bebidas Veganas</button>
         <button onclick="mostrarCategoria('doces')">Doces</button>
+
+        <!-- Botões adicionais -->
     </div>
 
-    <!-- Categoria Bolos -->
     <div id="bolos" class="secao categoria">
         <h2>Bolos</h2>
         <div class="item">
@@ -64,7 +201,7 @@
         <h2>Pães</h2>
         <div class="item">
             <img src="css/imagens/pao frances.jpg" alt="Pão Francês">
-            <p>Pão Frances: 4,00 R$</p>
+            <p>Pão Francês: 4,00 R$</p>
         </div>
         <div class="item">
             <img src="css/imagens/pao integral.jpg" alt="Pão Integral">
@@ -103,33 +240,21 @@
         </div>
     </div>
 
-    <div id="contato" class="secao">
-        <h2>Contato</h2>
-        <p>Informações de contato.</p>
-    </div>
 
     <script>
-        function mostrarCategoria(categoriaId) {
-            // Oculta todas as categorias
-            const categorias = document.querySelectorAll('.categoria');
-            categorias.forEach(categoria => {
-                categoria.classList.remove('categoria-ativa');
-            });
-
-            // Exibe a categoria selecionada
-            const categoriaSelecionada = document.getElementById(categoriaId);
-            if (categoriaSelecionada) {
-                categoriaSelecionada.classList.add('categoria-ativa');
-            }
+        function toggleMenu() {
+            document.querySelector('.menu').classList.toggle('active');
         }
 
         function mostrarSecao(secaoId) {
-            // Similar à função acima, mas para outras seções como Home, Conheça, etc.
-            const secoes = document.querySelectorAll('.secao');
-            secoes.forEach(secao => {
-                secao.classList.remove('categoria-ativa');
-            });
+            toggleMenu();
+            document.querySelectorAll('.secao').forEach(secao => secao.classList.remove('categoria-ativa'));
             document.getElementById(secaoId).classList.add('categoria-ativa');
+        }
+
+        function mostrarCategoria(categoriaId) {
+            document.querySelectorAll('.secao.categoria').forEach(categoria => categoria.classList.remove('categoria-ativa'));
+            document.getElementById(categoriaId).classList.add('categoria-ativa');
         }
     </script>
 </body>
