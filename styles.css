@@ -2,19 +2,39 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-image: url('css/imagens/fundoteste.jpg'); /* Caminho para a imagem de fundo */
+    background-size: cover; /* A imagem cobre toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Garante que o body e html ocupem 100% da altura da janela */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo da barra de navegação */
 .navbar {
+    width: 100%;
     background-color: #333;
-    overflow: hidden;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
 }
 
 .navbar .menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: none; /* Esconde o menu por padrão */
+    display: none; /* Esconde o menu por padrão em telas menores */
     flex-direction: column;
+    align-items: center; /* Centraliza itens do menu em tela reduzida */
 }
 
 .navbar .menu li {
@@ -28,6 +48,7 @@ body {
     display: block;
 }
 
+/* Ícone do menu (hambúrguer) */
 .navbar .menu-icon {
     display: block;
     color: white;
@@ -36,27 +57,7 @@ body {
     font-size: 24px;
 }
 
-.secao {
-    display: none; /* Esconde todas as seções por padrão */
-}
-
-.item {
-    margin: 10px 0;
-}
-
-.item img {
-    width: 100px;
-    height: auto;
-    display: block;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 12px;
-    margin: 12px 0;
-    box-sizing: border-box;
-}
-
+/* Estilo para telas maiores, onde o menu é visível */
 @media (min-width: 600px) {
     .navbar .menu {
         display: flex; /* Mostra o menu em telas maiores */
@@ -67,24 +68,40 @@ input[type="text"] {
     }
 }
 
-/* ajustar botão area de pesquisa  */
+/* Estilos de seções e itens */
+.secao {
+    display: none; /* Esconde todas as seções por padrão */
+}
 
-/* Estiliza o campo de pesquisa */
+.item {
+    margin: 10px 0;
+}
+
+.item img {
+    width: 200px; /* Ajuste o valor para o tamanho desejado */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 8px; /* Deixa os cantos arredondados, se desejar */
+    display: block;
+}
+
+/* Estilo do campo de pesquisa */
 input[type="text"] {
     padding: 5px; /* Reduz o espaçamento interno */
     font-size: 14px; /* Ajusta o tamanho do texto */
     width: 200px; /* Define a largura */
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin: 12px 0;
+    box-sizing: border-box;
 }
 
-/* Estiliza o botão, se ele estiver dentro de um form ou precisar de ajuste */
+/* Estiliza o botão */
 button {
-    padding: 5px 10px; /* Ajusta o espaçamento interno (vertical e horizontal) */
-    font-size: 14px; /* Define o tamanho do texto */
+    padding: 5px 10px; /* Ajusta o espaçamento interno */
+    font-size: 14px;
     border: none;
-    background-color: #333; /* Cor de fundo do botão */
-    color: white; /* Cor do texto */
+    background-color: #333;
+    color: white;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -93,7 +110,6 @@ button {
 input[type="text"], button {
     vertical-align: middle;
 }
-
 
 /* Estilo do carrossel de produtos */
 .product-carousel {
@@ -114,63 +130,11 @@ input[type="text"], button {
     flex-shrink: 0;
 }
 
-/* Estilo da imagem do produto */
 .carousel-item img {
     width: 100%;
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
-}
-
-/* Estilo do título do produto */
-.carousel-item h3 {
-    font-size: 18px;
-    margin: 10px 0 5px;
-}
-
-/* Estilo do preço */
-.carousel-item p {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Estilo do botão */
-.carousel-item button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.carousel-item button:hover {
-    background-color: #555;
-}
-
-.product-carousel {
-    display: flex;
-    overflow-x: scroll;
-    gap: 20px;
-    padding: 20px 0;
-}
-
-.carousel-item {
-    min-width: 200px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.carousel-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
 }
 
 .carousel-item h3 {
@@ -193,31 +157,11 @@ input[type="text"], button {
     cursor: pointer;
 }
 
-
-.item img {
-    width: 200px; /* Ajuste o valor para o tamanho desejado */
-    height: auto; /* Mantém a proporção da imagem */
-    border-radius: 8px; /* Deixa os cantos arredondados, se desejar */
+.carousel-item button:hover {
+    background-color: #555;
 }
 
-
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-/* Centralizar e estilizar a barra de navegação */
-.navbar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-    padding: 10px 0;
-}
-
+/* Estilo adicional do menu para centralizar na tela */
 .menu {
     list-style: none;
     padding: 0;
@@ -242,25 +186,17 @@ body {
     border-radius: 5px;
 }
 
+/* Estilo básico para os campos de input e textarea */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc; /* Borda visível para destacar os campos */
+    border-radius: 4px; /* Bordas arredondadas para estilo */
+    font-size: 16px;
+}
 
-
-    /* Configura a imagem de fundo */
-    body {
-        background-image: url('css/imagens/fundoteste.jpg'); /* Caminho para a imagem de fundo */
-        background-size: cover; /* A imagem cobre toda a área */
-        background-position: center; /* Centraliza a imagem */
-        background-repeat: no-repeat; /* Impede a repetição da imagem */
-        background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
-    }
-
-
-
-    /* Garante que o body e html ocupem 100% da altura da janela */
-    html, body {
-        height: 100%; /* Define a altura para 100% */
-        margin: 0;
-        padding: 0;
-    }
-
-    
 
